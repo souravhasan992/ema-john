@@ -2,11 +2,13 @@
 const addToDb = id => {
   const exists = getDb();
   let shopping_cart = {};
+  // shopping cart check
   if (!exists) {
     shopping_cart[id] = 1;
   }
   else {
     shopping_cart = JSON.parse(exists);
+    // id check in shopping cart
     if (shopping_cart[id]) {
       const newCount = shopping_cart[id] + 1;
       shopping_cart[id] = newCount;
